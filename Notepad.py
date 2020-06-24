@@ -36,29 +36,21 @@ def new_file():
     window.title("Untitled - Notepad")
     file = None
     text_area.delete(1.0, END)
-
-
-
-
-
+    
+    
 def open_file():
     global file
     file = askopenfilename(defaultextension=".txt",filetypes=[("All Files", "*.*"),("Text Documents", "*.txt")])
     if file == "":
         file = None
-    
     else:
         window.title(os.path.basename(file) + " - Notepad")
         text_area.delete(1.0, END)
         f = open(file, "r")
         text_area.insert(1.0, f.read())
         f.close()
-    
-
-    
-
-
-
+        
+            
 def save_file():
     global file
     if file == None:
@@ -76,49 +68,33 @@ def save_file():
         f = open(file, "w")
         f.write(text_area.get(1.0, END))
         f.close()
-        
-
-
-
-
+       
+    
 def close_file():
     text_area.delete('1.0', END)
     window.title("Notepad")
 
         
-
-        
-    
 def exit_file():
     if messagebox.askokcancel("Save Changes", "Do you want to save changes?"):
         save_file()
         window.destroy
     elif messagebox.askokcancel("Quit", "Do you want to quit?"):
         window.destroy()
-
-
-
-
+        
+        
+        
+        
 def cut():
     text_area.event_generate(("<<Cut>>"))
-
-
 def copy():
     text_area.event_generate(("<<Copy>>"))
-
-
 def paste():
     text_area.event_generate(("<<Paste>>"))
-
-
 def select_all():
     text_area.tag_add('sel', '1.0', 'end')
-
-
 def delete():
     text_area.delete(0.0, END)
-
-
 def deselect_all():
     text_area.tag_remove("sel",'1.0','end')
 
