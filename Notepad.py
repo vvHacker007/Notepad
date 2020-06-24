@@ -4,8 +4,6 @@ from tkinter import messagebox
 import os
 
 
-
-
 # Basic Tkinter setup
 # We will create a window widget with the title Notepad
 window = Tk()
