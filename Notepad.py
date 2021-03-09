@@ -13,7 +13,8 @@ window.title("Notepad")
 
 # With this we will give an icon to the program and we will give a geometry to the window in the form widthxheight
 window.wm_iconbitmap("notepad_icon.ico")
-window.geometry("1280x720")
+window.overrideredirect(True)
+window.geometry("{0}x{0}+0+0".format(window.winfo_screenwidth(), window.winfo_screenheight()))
 
 # With this we will be creating a lower limit of resizing the window in the format of width,height
 window.minsize(733,434)
